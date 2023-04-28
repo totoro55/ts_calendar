@@ -1,9 +1,7 @@
-import React, {FC, useRef} from 'react';
+import React, {FC} from 'react';
 import {daysOfWeek} from "../constants/date";
-import CalendarBodyDate from "./CalendarBodyDate";
-import {createCalendar, createDifferentCalendar} from "../helpers/createCalendar";
+import {createCalendar} from "../helpers/createCalendar";
 import CalendarBodyMonth from "./CalendarBodyMonth";
-import {ICalendar} from "../models/ICalendar";
 
 interface CalendarBodyProps {
     year: number
@@ -18,7 +16,7 @@ const CalendarBody: FC<CalendarBodyProps> = (
         today,
     }) => {
 
-    const calendar = createCalendar(year, month)
+    const calendar:Date[] = createCalendar(year, month)
 
     return (
         <section className='flex h-full w-full flex-col pt-3 md:pt-6 overflow-hidden'>

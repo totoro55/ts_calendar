@@ -1,5 +1,5 @@
 export interface ICalendar {
-    calendar:Date[]|[]
+    calendar:Date[]
     year:number
     month:number
 }

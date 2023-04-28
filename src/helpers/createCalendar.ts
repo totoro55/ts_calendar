@@ -1,10 +1,10 @@
-import {ICalendar} from "../models/ICalendar";
+import {ICalendar} from "../types/ICalendar";
 
-export const createCalendar = (year: number, month: number): Array<Date> => {
+export const createCalendar = (year: number, month: number): Date[] => {
     const firstDayOfMonth: Date = new Date(year, month, 1)
     const lastDayOfMonth: Date = new Date(year, month + 1, 0)
 
-    let calendar = []
+    let calendar:Date[] = []
     if (firstDayOfMonth.getUTCDay() !== 0) {
         for (let i = 0; i < firstDayOfMonth.getUTCDay(); i++) {
             calendar.unshift(new Date(year, month, -i))
@@ -27,7 +27,7 @@ export const createCalendar = (year: number, month: number): Array<Date> => {
         }
     }
     if (calendar.length <= 35) {
-        const length = calendar.length
+        const length:number = calendar.length
         for (let i = length; i < length + 7; i++) {
             calendar.push(new Date(year, month + 1, calendar[calendar.length - 1].getDate() + 1))
         }
@@ -37,7 +37,7 @@ export const createCalendar = (year: number, month: number): Array<Date> => {
 
 }
 
-export const createDifferentCalendar = (year:number, month:number, value:number):any=>{
+export const createDifferentCalendar = (year:number, month:number, value:number):ICalendar=>{
     let calendarObj:ICalendar = {
         calendar:[],
         year:0,
